@@ -45,7 +45,7 @@ sub.subscribe('stream');
 sub.on('message', async (channel, message) => {
     console.log(message);
     lastMessageTimeatamp = Date.now();
-    if (NODE_ID === MASTER_NODE && Math.random()*100 < 50) {
+    if (NODE_ID === MASTER_NODE && Math.random()*100 < 5) {
         const { errors } = JSON.parse(await getAsync('errors'));
                 
         await setAsync('errors', JSON.stringify({ errors: [...errors, message] }));
